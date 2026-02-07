@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1f2a23" />
+  <title>Iglesia de Guadalupe • Ciudad Mante</title>
+  <meta name="description" content="Sitio informativo de la Iglesia de Guadalupe en Ciudad Mante, Tamaulipas. Contacto por WhatsApp." />
+
+  <link rel="icon" href="assets/img/iadOS-logo.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- Fondo dinámico -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <header class="topbar" id="top">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Inicio">
+        <img src="assets/img/iadOS-logo.png" alt="iadOS" />
+        <span class="brand__text">
+          <strong>Iglesia de Guadalupe</strong>
+          <small>Ciudad Mante, Tamaulipas</small>
+        </span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#acerca">Acerca</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto" class="pill">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero">
+      <div class="hero__bg" role="img" aria-label="Fachada de la Iglesia de Guadalupe"></div>
+
+      <div class="container hero__content">
+        <div class="badge reveal">
+          <span class="dot"></span>
+          Comunidad • Fe • Servicio
+        </div>
+
+        <h1 class="reveal">Un lugar de encuentro con <span class="grad">Dios</span> en el corazón de Ciudad Mante.</h1>
+        <p class="lead reveal">
+          Información, ubicación y contacto directo. Con un diseño moderno, accesible y rápido (PWA + animaciones suaves).
+        </p>
+
+        <div class="cta reveal">
+          <a class="btn primary" href="#contacto">Contactar por WhatsApp</a>
+          <a class="btn ghost" href="#ubicacion">Ver ubicación</a>
+        </div>
+
+        <div class="stats reveal" aria-label="Información rápida">
+          <div class="stat">
+            <div class="stat__k">Dirección</div>
+            <div class="stat__v">Miguel Hidalgo 104, Zona Centro</div>
+          </div>
+          <div class="stat">
+            <div class="stat__k">Ciudad</div>
+            <div class="stat__v">Cd. Mante, Tamps.</div>
+          </div>
+          <div class="stat">
+            <div class="stat__k">Contacto</div>
+            <div class="stat__v">WhatsApp: 831 898 9580</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scrollhint" aria-hidden="true">
+        <span></span>
+      </div>
+    </section>
+
+    <section class="section" id="acerca">
+      <div class="container grid2">
+        <div class="card reveal">
+          <h2>Acerca de la Iglesia</h2>
+          <p>
+            La <strong>Parroquia Nuestra Señora de Guadalupe</strong> es un punto de referencia en la zona centro de Ciudad Mante.
+            Aquí encontrarás un espacio de oración, sacramentos, acompañamiento y actividades comunitarias.
+          </p>
+          <ul class="list">
+            <li><span class="check">✓</span> Celebraciones y vida parroquial</li>
+            <li><span class="check">✓</span> Eventos en fechas especiales (p. ej. 12 de diciembre)</li>
+            <li><span class="check">✓</span> Atención y orientación pastoral</li>
+          </ul>
+          <div class="note">
+            <strong>Nota:</strong> Los horarios pueden cambiar por temporada. Para confirmar, escríbenos por WhatsApp.
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="card media reveal">
+            <img src="assets/img/guadalupe-mante-dia.jpg" alt="Iglesia de Guadalupe en Ciudad Mante (vista de día)" loading="lazy" />
+            <div class="media__cap">
+              <strong>Fachada principal</strong>
+              <span>Ciudad Mante • Tamaulipas</span>
+            </div>
+          </div>
+
+          <div class="card media reveal">
+            <img src="assets/img/guadalupe-mante-noche.jpg" alt="Iglesia de Guadalupe en Ciudad Mante (vista nocturna)" loading="lazy" />
+            <div class="media__cap">
+              <strong>Vista nocturna</strong>
+              <span>Iluminación de las torres</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="galeria">
+      <div class="container">
+        <div class="head reveal">
+          <h2>Galería</h2>
+          <p>Algunas postales de la iglesia y su entorno. (Toca para ver en grande)</p>
+        </div>
+
+        <div class="gallery">
+          <button class="gitem reveal" data-full="assets/img/guadalupe-mante-dia.jpg" aria-label="Abrir foto: vista de día">
+            <img src="assets/img/guadalupe-mante-dia.jpg" alt="" loading="lazy" />
+            <span>Vista de día</span>
+          </button>
+
+          <button class="gitem reveal" data-full="assets/img/guadalupe-mante-noche.jpg" aria-label="Abrir foto: vista nocturna">
+            <img src="assets/img/guadalupe-mante-noche.jpg" alt="" loading="lazy" />
+            <span>Vista nocturna</span>
+          </button>
+
+          <button class="gitem reveal" data-full="assets/img/guadalupe-mante-dia.jpg" data-crop="1" aria-label="Abrir foto: detalle de la fachada">
+            <img src="assets/img/guadalupe-mante-dia.jpg" alt="" loading="lazy" />
+            <span>Detalle</span>
+          </button>
+
+          <button class="gitem reveal" data-full="assets/img/guadalupe-mante-noche.jpg" data-crop="1" aria-label="Abrir foto: detalle nocturno">
+            <img src="assets/img/guadalupe-mante-noche.jpg" alt="" loading="lazy" />
+            <span>Detalle nocturno</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ubicacion">
+      <div class="container grid2">
+        <div class="card reveal">
+          <h2>Ubicación</h2>
+          <p>
+            Encuéntranos en la zona centro:
+          </p>
+
+          <div class="kvs">
+            <div class="kv">
+              <div class="kv__k">Dirección</div>
+              <div class="kv__v">Miguel Hidalgo 104, Zona Centro, 89800 Cd. Mante, Tamps.</div>
+            </div>
+            <div class="kv">
+              <div class="kv__k">Referencia</div>
+              <div class="kv__v">Zona centro</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <a class="btn primary" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=Miguel%20Hidalgo%20104%2C%20Zona%20Centro%2C%2089800%20Cd.%20Mante%2C%20Tamps.">
+              Abrir en Google Maps
+            </a>
+            <a class="btn ghost" href="#contacto">Pedir indicaciones</a>
+          </div>
+        </div>
+
+        <div class="card reveal mapwrap">
+          <iframe
+            title="Mapa: Iglesia de Guadalupe, Ciudad Mante"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Miguel%20Hidalgo%20104%2C%20Zona%20Centro%2C%2089800%20Cd.%20Mante%2C%20Tamps.&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contacto">
+      <div class="container grid2">
+        <div class="card reveal">
+          <h2>Contacto por WhatsApp</h2>
+          <p>
+            Escríbenos y te respondemos lo antes posible (horarios, actividades, información general).
+          </p>
+
+          <form id="waForm" class="form" autocomplete="on">
+            <label>
+              <span>Nombre</span>
+              <input name="nombre" placeholder="Tu nombre" />
+            </label>
+
+            <label>
+              <span>Mensaje</span>
+              <textarea name="mensaje" rows="4" placeholder="Hola, me gustaría información sobre…"></textarea>
+            </label>
+
+            <button class="btn primary" type="submit">
+              Enviar por WhatsApp
+              <span class="arrow">↗</span>
+            </button>
+
+            <p class="micro">
+              Al enviar, se abrirá WhatsApp con tu mensaje listo. Número: <strong>831 898 9580</strong>.
+            </p>
+          </form>
+        </div>
+
+        <div class="card reveal">
+          <h2>Desarrollado por iadOS.mx</h2>
+          <p>Soluciones de Inteligencia Artificial & DevOps para comunidades y negocios.</p>
+
+          <div class="brandbox">
+            <img src="assets/img/iadOS-logo.png" alt="Logo iadOS" />
+            <div>
+              <div class="brandbox__t">iadOS.mx</div>
+              <div class="brandbox__s">Inteligencia Artificial • DevOps Solutions</div>
+            </div>
+          </div>
+
+          <div class="chips">
+            <span class="chip">PWA (instalable)</span>
+            <span class="chip">Carga rápida</span>
+            <span class="chip">Animaciones on-scroll</span>
+            <span class="chip">Accesible</span>
+          </div>
+
+          <a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/528318989580?text=Hola%20iadOS%2C%20quiero%20soporte%20del%20sitio%20de%20Iglesia%20de%20Guadalupe.">
+            Soporte técnico (WhatsApp)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container foot">
+        <div class="foot__left">
+          <div class="foot__brand">
+            <img src="assets/img/iadOS-logo.png" alt="" />
+            <div>
+              <strong>Iglesia de Guadalupe</strong>
+              <small>Ciudad Mante, Tamaulipas</small>
+            </div>
+          </div>
+          <p class="micro">
+            © <span id="y"></span> • Sitio informativo. Créditos de fotos: MéxicoEnFotos (ver fuentes en /CREDITOS.txt).
+          </p>
+        </div>
+
+        <div class="foot__right">
+          <a class="pill" href="#top">Volver arriba</a>
+          <a class="pill" href="https://wa.me/528318989580" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox">
+    <button class="lb__close" id="lbClose" aria-label="Cerrar">✕</button>
+    <img id="lbImg" alt="" />
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
