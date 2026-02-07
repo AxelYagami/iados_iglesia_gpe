@@ -1,0 +1,491 @@
+/* Iglesia de Guadalupe • Ciudad Mante
+   Diseño moderno (glass + gradients + animaciones suaves)
+*/
+
+:root{
+  --bg: #0b0f0c;
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.08);
+  --text: rgba(255,255,255,.88);
+  --muted: rgba(255,255,255,.66);
+  --line: rgba(255,255,255,.14);
+  --accent: #62c48f;
+  --accent2:#2f8f63;
+  --shadow: 0 20px 60px rgba(0,0,0,.45);
+  --radius: 22px;
+  --max: 1120px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(98,196,143,.18), transparent 55%),
+    radial-gradient(900px 600px at 90% 10%, rgba(98,196,143,.12), transparent 50%),
+    radial-gradient(900px 600px at 60% 120%, rgba(0,150,255,.08), transparent 55%),
+    var(--bg);
+  overflow-x:hidden;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+
+.skip{
+  position:absolute;
+  left:-999px; top:auto;
+  width:1px; height:1px; overflow:hidden;
+}
+.skip:focus{
+  left:16px; top:16px; width:auto; height:auto;
+  padding:10px 14px;
+  background:#111; border:1px solid var(--line);
+  border-radius:12px;
+  z-index:9999;
+}
+
+#fx{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  opacity:.55;
+}
+
+.container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(to bottom, rgba(11,15,12,.85), rgba(11,15,12,.35));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+}
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.brand img{
+  width:44px; height:44px;
+  border-radius:14px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  padding:6px;
+}
+.brand__text strong{ display:block; font-weight:800; letter-spacing:.2px; }
+.brand__text small{ display:block; color:var(--muted); margin-top:2px; }
+
+.nav__links{ display:flex; gap:14px; align-items:center; }
+.nav__links a{
+  color:var(--muted);
+  padding:10px 12px;
+  border-radius:14px;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.nav__links a:hover{ color:var(--text); background: rgba(255,255,255,.06); transform: translateY(-1px); }
+
+.pill{
+  border:1px solid rgba(98,196,143,.35);
+  background: linear-gradient(180deg, rgba(98,196,143,.16), rgba(98,196,143,.06));
+  color: rgba(255,255,255,.92) !important;
+}
+
+.nav__toggle{
+  display:none;
+  width:44px; height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  color:#fff;
+  cursor:pointer;
+}
+.nav__toggle span{
+  display:block;
+  width:18px;
+  height:2px;
+  background: rgba(255,255,255,.85);
+  margin:4px auto;
+  border-radius:99px;
+}
+
+.hero{
+  position:relative;
+  min-height: 92vh;
+  display:flex;
+  align-items:stretch;
+  overflow:hidden;
+}
+.hero__bg{
+  position:absolute;
+  inset:-40px;
+  background:
+    linear-gradient(90deg, rgba(11,15,12,.88) 0%, rgba(11,15,12,.55) 45%, rgba(11,15,12,.14) 78%),
+    url("../img/guadalupe-mante-dia.jpg") center/cover no-repeat;
+  filter: saturate(1.05) contrast(1.05);
+  transform: translateZ(0);
+}
+.hero__content{
+  position:relative;
+  padding: 86px 0 64px;
+  max-width: 820px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.80);
+  width: fit-content;
+}
+.dot{
+  width:8px;height:8px;border-radius:999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(98,196,143,.12);
+}
+
+h1{
+  margin:16px 0 0;
+  font-size: clamp(2.05rem, 4vw, 3.3rem);
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+.grad{
+  background: linear-gradient(120deg, rgba(98,196,143,1), rgba(130,210,255,1));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.lead{
+  margin:14px 0 0;
+  font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+  color: rgba(255,255,255,.78);
+  line-height:1.6;
+}
+
+.cta{ margin:20px 0 0; display:flex; gap:12px; flex-wrap:wrap; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.92);
+  cursor:pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+.btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+.btn:active{ transform: translateY(0px); }
+.btn.primary{
+  border-color: rgba(98,196,143,.42);
+  background: linear-gradient(180deg, rgba(98,196,143,.26), rgba(98,196,143,.10));
+}
+.btn.ghost{ background: rgba(0,0,0,.18); }
+
+.arrow{ font-size: 1.05em; opacity:.9; }
+
+.stats{
+  margin-top: 26px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:10px;
+}
+.stat{
+  padding:12px 14px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+}
+.stat__k{ color: rgba(255,255,255,.62); font-size:.85rem; }
+.stat__v{ margin-top:6px; font-weight:650; }
+
+.scrollhint{
+  position:absolute;
+  left:50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+.scrollhint span{
+  display:block;
+  width: 4px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.72);
+  margin: 8px auto 0;
+  animation: scroll 1.2s ease-in-out infinite;
+}
+@keyframes scroll{
+  0%{ transform: translateY(0); opacity:.2;}
+  50%{ transform: translateY(10px); opacity:1;}
+  100%{ transform: translateY(0); opacity:.2;}
+}
+
+.section{ padding: 72px 0; }
+.section.alt{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.grid2{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 18px;
+  align-items:start;
+}
+.stack{ display:grid; gap: 14px; }
+
+.card{
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  backdrop-filter: blur(14px);
+}
+.card h2{ margin:0 0 10px; font-size: 1.5rem; letter-spacing:-.01em; }
+.card p{ margin:0 0 12px; color: rgba(255,255,255,.78); line-height:1.65; }
+
+.list{ list-style:none; padding:0; margin: 14px 0 0; display:grid; gap:10px; }
+.list li{ display:flex; gap:10px; align-items:flex-start; color: rgba(255,255,255,.78); }
+.check{
+  width: 22px; height: 22px; border-radius: 8px;
+  display:inline-flex; align-items:center; justify-content:center;
+  background: rgba(98,196,143,.16);
+  border:1px solid rgba(98,196,143,.28);
+  color: rgba(255,255,255,.92);
+  flex: 0 0 auto;
+}
+.note{
+  margin-top: 14px;
+  border-radius: 18px;
+  border:1px dashed rgba(255,255,255,.18);
+  background: rgba(0,0,0,.18);
+  padding: 14px;
+  color: rgba(255,255,255,.78);
+}
+
+.media{ padding:0; overflow:hidden; }
+.media img{ width:100%; height: 270px; object-fit:cover; }
+.media__cap{
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px;
+}
+.media__cap span{ color: rgba(255,255,255,.62); font-size:.92rem; }
+
+.head{ max-width: 720px; margin-bottom: 18px; }
+.head p{ color: rgba(255,255,255,.70); margin: 10px 0 0; }
+
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+}
+.gitem{
+  position:relative;
+  padding:0;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow: 0 16px 50px rgba(0,0,0,.35);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.gitem:hover{ transform: translateY(-2px); border-color: rgba(98,196,143,.30); }
+.gitem img{ width:100%; height: 210px; object-fit:cover; filter:saturate(1.03) contrast(1.03); }
+.gitem span{
+  position:absolute;
+  left:10px; bottom:10px;
+  padding:8px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(11,15,12,.55);
+  color: rgba(255,255,255,.86);
+  font-size: .9rem;
+  backdrop-filter: blur(10px);
+}
+
+.kvs{ display:grid; gap: 12px; margin-top: 14px; }
+.kv{
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.15);
+}
+.kv__k{ color: rgba(255,255,255,.62); font-size:.9rem; }
+.kv__v{ margin-top: 6px; font-weight:650; }
+
+.row{ margin-top: 14px; display:flex; gap:12px; flex-wrap:wrap; }
+
+.mapwrap{ padding:0; overflow:hidden; }
+.mapwrap iframe{ width:100%; height: 420px; border:0; }
+
+.form{ display:grid; gap: 12px; margin-top: 12px; }
+label span{ display:block; color: rgba(255,255,255,.65); font-size: .9rem; margin-bottom: 6px; }
+input, textarea{
+  width:100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.22);
+  color: rgba(255,255,255,.90);
+  outline: none;
+}
+input:focus, textarea:focus{
+  border-color: rgba(98,196,143,.40);
+  box-shadow: 0 0 0 6px rgba(98,196,143,.12);
+}
+
+.micro{ font-size:.9rem; color: rgba(255,255,255,.66); margin: 0; }
+
+.brandbox{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.16);
+}
+.brandbox img{
+  width: 50px; height: 50px;
+  border-radius: 16px;
+  padding: 8px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+}
+.brandbox__t{ font-weight:800; letter-spacing:.2px; }
+.brandbox__s{ color: rgba(255,255,255,.62); margin-top: 2px; font-size:.92rem; }
+
+.chips{ display:flex; gap:10px; flex-wrap:wrap; margin: 14px 0; }
+.chip{
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.74);
+  font-size: .9rem;
+}
+
+.footer{
+  padding: 26px 0 34px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.22);
+}
+.foot{ display:flex; justify-content:space-between; gap: 14px; align-items:flex-start; flex-wrap:wrap; }
+.foot__brand{ display:flex; gap: 10px; align-items:center; }
+.foot__brand img{
+  width: 38px; height: 38px;
+  border-radius: 14px;
+  padding: 6px;
+  background: rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+}
+.foot__brand small{ display:block; margin-top:2px; color: rgba(255,255,255,.62); }
+.foot__right{ display:flex; gap:10px; flex-wrap:wrap; }
+
+.lightbox{
+  width:min(980px, calc(100% - 30px));
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 22px;
+  padding: 0;
+  background: rgba(8,10,9,.88);
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+  overflow:hidden;
+}
+.lightbox::backdrop{
+  background: rgba(0,0,0,.62);
+  backdrop-filter: blur(8px);
+}
+.lightbox img{ width:100%; height: auto; display:block; max-height: 78vh; object-fit: contain; background:#000; }
+.lb__close{
+  position:absolute;
+  top: 10px; right: 10px;
+  width: 42px; height: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.07);
+  color: rgba(255,255,255,.92);
+  cursor:pointer;
+}
+
+.reveal{
+  opacity: 0;
+  transform: translateY(10px) scale(.99);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-in{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .grid2{ grid-template-columns: 1fr; }
+  .stats{ grid-template-columns: 1fr; }
+  .hero__content{ padding-top: 72px; }
+  .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .media img{ height: 240px; }
+}
+@media (max-width: 760px){
+  .nav__toggle{ display:block; }
+  .nav__links{
+    position: absolute;
+    right: 20px;
+    top: 66px;
+    display:none;
+    flex-direction: column;
+    align-items:stretch;
+    padding: 10px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(11,15,12,.82);
+    backdrop-filter: blur(16px);
+    width: min(320px, calc(100% - 40px));
+    box-shadow: 0 20px 70px rgba(0,0,0,.55);
+  }
+  .nav__links a{ width:100%; }
+  .nav__links.is-open{ display:flex; }
+  .hero__bg{
+    background:
+      linear-gradient(180deg, rgba(11,15,12,.88) 0%, rgba(11,15,12,.62) 45%, rgba(11,15,12,.10) 100%),
+      url("../img/guadalupe-mante-dia.jpg") center/cover no-repeat;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .reveal{ transition:none; transform:none; opacity:1; }
+  .scrollhint span{ animation:none; }
+  .btn{ transition:none; }
+}
